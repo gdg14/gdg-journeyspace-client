@@ -1,14 +1,14 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import App from "./App";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
+import App from './App';
 
 // router
-import { BrowserRouter } from "react-router-dom";
 
-//style
-import GlobalStyle from "./styles/GlobalStyle";
-import Theme from "./styles/Theme";
-import { ThemeProvider } from "styled-components";
+// style
+import GlobalStyle from './styles/GlobalStyle';
+import Theme from './styles/Theme';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -19,5 +19,5 @@ ReactDOM.render(
       </ThemeProvider>
     </BrowserRouter>
   </React.StrictMode>,
-  document.getElementById("root")
+  document.getElementById('root'),
 );
