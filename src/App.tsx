@@ -1,11 +1,13 @@
-import { Switch, Route } from 'react-router-dom';
+import React from "react";
+import { ApolloProvider } from "@apollo/client";
+import Router from "./Router";
+import { client } from "./apollo/client";
 
 function App() {
   return (
-    <Switch>
-      <Route path="/" exact component={() => <div>test</div>} />
-    </Switch>
+    <ApolloProvider client={client}>
+      <Router />
+    </ApolloProvider>
   );
 }
-
 export default App;
