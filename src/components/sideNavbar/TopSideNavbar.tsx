@@ -62,8 +62,8 @@ function TopSideNavbar() {
             <ProfileInfo>193일째 여행중</ProfileInfo>
           </div>
         </ProfileWrapper>
-        <SideMenuTitle>활동내역</SideMenuTitle>
-        <SideMenuTitle>최근본 일기</SideMenuTitle>
+        <SideMenuTitle to="/">활동내역</SideMenuTitle>
+        <SideMenuTitle to="/">최근본 일기</SideMenuTitle>
       </MenuWrapper>
     </Wrapper>
   );

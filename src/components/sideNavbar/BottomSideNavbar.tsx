@@ -9,7 +9,7 @@ const Wrapper = styled.article`
 `;
 
 const MenuWrapper = styled.div`
-  height: 65%;
+  height: 60%;
 
   display: flex;
   flex-direction: column;
@@ -20,10 +20,10 @@ function BottomSideNavbar() {
   return (
     <Wrapper>
       <MenuWrapper>
-        <SideMenuTitle>홈</SideMenuTitle>
-        <SideMenuTitle>일기쓰기</SideMenuTitle>
-        <SideMenuTitle>둘러보기</SideMenuTitle>
-        <SideMenuTitle>즐겨찾기</SideMenuTitle>
+        <SideMenuTitle to="/">홈</SideMenuTitle>
+        <SideMenuTitle to="/">일기쓰기</SideMenuTitle>
+        <SideMenuTitle to="/">둘러보기</SideMenuTitle>
+        <SideMenuTitle to="/">즐겨찾기</SideMenuTitle>
       </MenuWrapper>
     </Wrapper>
   );
