@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { useLocation } from 'react-router-dom';
 
 import { SideMenuTitle } from '../common/title';
 
@@ -17,15 +18,23 @@ const MenuWrapper = styled.div`
 `;
 
 function BottomSideNavbar() {
+  const { pathname } = useLocation();
+
   return (
     <Wrapper>
       <MenuWrapper>
-        <SideMenuTitle to="/" isSelected>
+        <SideMenuTitle to="/" selected={pathname === '/'}>
           홈
         </SideMenuTitle>
-        <SideMenuTitle to="/">일기쓰기</SideMenuTitle>
-        <SideMenuTitle to="/">둘러보기</SideMenuTitle>
-        <SideMenuTitle to="/">즐겨찾기</SideMenuTitle>
+        <SideMenuTitle to="/journey" selected={pathname === '/journey'}>
+          일기쓰기
+        </SideMenuTitle>
+        <SideMenuTitle to="/random" selected={pathname === '/random'}>
+          둘러보기
+        </SideMenuTitle>
+        <SideMenuTitle to="/favorites" selected={pathname === '/favorites'}>
+          즐겨찾기
+        </SideMenuTitle>
       </MenuWrapper>
     </Wrapper>
   );
