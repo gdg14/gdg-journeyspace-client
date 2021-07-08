@@ -1,4 +1,4 @@
-import { HashRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 import Template from './components/template/Template';
 
@@ -7,12 +7,12 @@ import Auth from './pages/Auth';
 
 function Router() {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <Template>
-        <Route path="/login" exact component={Auth} />
-        <Route path="/" exact component={Home} />
+        <Route path="/auth" component={Auth} />
+        <Route path="/" component={Home} />
       </Template>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 
