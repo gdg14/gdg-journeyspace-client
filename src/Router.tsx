@@ -1,11 +1,15 @@
-import React from "react";
-import { HashRouter, Route, Redirect } from "react-router-dom";
-import Home from "./pages/Home";
+import { HashRouter, Route } from 'react-router-dom';
+
+import Template from './components/template/Template';
+
+import Home from './pages/Home';
 
 function Router() {
   return (
     <HashRouter>
-    <Route path="/" component={Home} />
+      <Template>
+        <Route path="/" exact component={Home} />
+      </Template>
     </HashRouter>
   );
 }
