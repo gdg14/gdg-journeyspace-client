@@ -20,7 +20,9 @@ function BottomSideNavbar() {
   return (
     <Wrapper>
       <MenuWrapper>
-        <SideMenuTitle to="/">홈</SideMenuTitle>
+        <SideMenuTitle to="/" isSelected>
+          홈
+        </SideMenuTitle>
         <SideMenuTitle to="/">일기쓰기</SideMenuTitle>
         <SideMenuTitle to="/">둘러보기</SideMenuTitle>
         <SideMenuTitle to="/">즐겨찾기</SideMenuTitle>
