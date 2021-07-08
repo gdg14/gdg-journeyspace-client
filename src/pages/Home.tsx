@@ -1,22 +1,18 @@
-import { gql, useQuery } from "@apollo/client";
-
-const GET_MOVIE = gql`
-query rates($currency:  String!) {
-  rates(currency: $currency){
-    rate
-    name
-    currency
-  }
-}
-`;
+import { Switch, Route, useLocation } from 'react-router-dom';
+import MainCard from '../components/template/MainCard';
 
 function Home() {
-  const moviesResult = useQuery(GET_MOVIE, { variables: {"currency": "test"}});
-  console.log(moviesResult.data)
+  const { pathname } = useLocation();
+
   return (
-    <div>
-      test
-    </div>
+    <MainCard>
+      <Switch>
+        <Route path={`${pathname}/`} exact component={() => <div>홈</div>} />
+        <Route path={`${pathname}/journey`} exact component={() => <div>일기쓰기</div>} />
+        <Route path={`${pathname}/random`} exact component={() => <div>둘러보기</div>} />
+        <Route path={`${pathname}/favorites`} exact component={() => <div>즐겨찾기</div>} />
+      </Switch>
+    </MainCard>
   );
 }
 
