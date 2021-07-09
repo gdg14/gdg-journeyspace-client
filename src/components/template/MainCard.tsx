@@ -11,6 +11,15 @@ const Wrapper = styled.section`
   background-color: #f0f0f0;
 `;
 
+const MainWrapper = styled.section`
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+`;
+
 interface IProps {
   children: React.ReactNode;
 }
@@ -19,7 +28,7 @@ function MainCard({ children }: IProps) {
   return (
     <Wrapper>
       <SideNavbar />
-      {children}
+      <MainWrapper>{children}</MainWrapper>
     </Wrapper>
   );
 }
