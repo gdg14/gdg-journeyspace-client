@@ -74,7 +74,7 @@ const JourneyItem = (temp: Journey) => {
   return (
     <JourneyCard 
     onClick={() => { 
-      console.log(item)
+      window.location.replace(`/journeyy/${item.idx}`);
     }}>
       <CardWrapper>
         <CardText>
