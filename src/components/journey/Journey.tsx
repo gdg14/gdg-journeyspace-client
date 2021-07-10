@@ -1,3 +1,4 @@
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import JourneyItem from './JourneyItem';
 
@@ -97,6 +98,8 @@ const WriteText = styled.span`
 `;
 
 function Journey() {
+  const history = useHistory();
+
   return (
     <Wrapper>
       <JourneyTop>
@@ -107,7 +110,7 @@ function Journey() {
           <WriteIcon alt="write_icon" src={`${process.env.PUBLIC_URL}/icon/add_btn.png`} />
           <WriteText
             onClick={() => {
-              window.location.replace(`/write-journey`);
+              history.push('/write-journey');
             }}
           >
             오늘 일기쓰기

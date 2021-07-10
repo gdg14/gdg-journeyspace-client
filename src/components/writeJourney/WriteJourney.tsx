@@ -1,5 +1,8 @@
+import { useMutation } from '@apollo/client';
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
+import { SAVE_DIARY } from '../home/gql';
 
 const Wrapper = styled.article`
   width: 100%;
@@ -289,12 +292,12 @@ const PublicBtnList = [
   {
     text: '작성한 일기를 공개해요',
     val: true,
-    selected: true,
+    selected: 'Y',
   },
   {
     text: '작성한 일기를 비공개해요',
     val: false,
-    selected: false,
+    selected: 'N',
   },
 ];
 
@@ -315,12 +318,14 @@ const PublicBtn = styled.button.attrs((props) => ({
   width: 200px;
   height: 60px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-  background-color: white;
-  border: 1px solid white;
 
   &.selected {
     background-color: #ffdd00;
     border: 1px solid #ffdd00;
+  }
+  &.unselected {
+    background-color: white;
+    border: 1px solid white;
   }
 `;
 
@@ -342,17 +347,62 @@ const SubmitBtn = styled.button.attrs((props) => ({
   }
 `;
 
+interface Journey {
+  usrId: '';
+  title: '';
+  content: '';
+  category: '';
+  feelings: '';
+  publicYN: 'Y' | 'N';
+}
+
 function WriteJourney() {
   const writeData = {
     title: '',
     content: '',
   };
 
-  // let PlanetSelected = 'happy';
+  const [PublicSelected, setPublicSelected] = useState('Y');
+
+  const onChangePublic = (item: string) => {
+    setPublicSelected(item);
+  };
   const [PlanetSelected, setPlanetSelected] = useState('happy');
 
   const onChangeComment = (item: string) => {
+    inputs.feelings = item;
     setPlanetSelected(item);
+  };
+
+  const [inputs, setInputs] = useState({
+    usrId: '',
+    title: '',
+    content: '',
+    category: '',
+    feelings: '',
+    publicYN: 'Y',
+  });
+
+  const { usrId, title, content, category, feelings, publicYN } = inputs; // 비구조화 할당을 통해 값 추출
+
+  const onChange = (e: any) => {
+    const { name, value } = e.target;
+    setInputs({
+      ...inputs,
+      [name]: value,
+    });
+  };
+
+  const history = useHistory();
+  const [saveDiary] = useMutation(SAVE_DIARY, { variables: inputs });
+
+  const saveJourneyClick = async (event: any) => {
+    event.preventDefault();
+
+    const result = await saveDiary();
+    if (result) {
+      history.push('/journey');
+    }
   };
 
   return (
@@ -360,13 +410,18 @@ function WriteJourney() {
       <Height>
         <JourneyTop>
           <Date>7.07</Date>
-          <TitleInput type="text" name="title" placeholder="제목을 입력해 주세요" value={writeData.title} />
+          <TitleInput type="text" name="title" onChange={onChange} value={title} placeholder="제목을 입력해 주세요" />
         </JourneyTop>
         <ItemWrapper>
           <LeftWrap>
             <JourneyContent>
               <TextTitle>오늘의 일기</TextTitle>
-              <ContentTextArea placeholder="l 일기 내용을 적어주세요" />
+              <ContentTextArea
+                name="content"
+                onChange={onChange}
+                value={content}
+                placeholder="l 일기 내용을 적어주세요"
+              />
             </JourneyContent>
             <JourneyImg>
               <TextTitle>오늘의 사진</TextTitle>
@@ -406,14 +461,22 @@ function WriteJourney() {
                   return (
                     <>
                       <PlanetWrapper>
-                        <PublicBtn className={t.selected ? 'selected' : ''}>{t.text}</PublicBtn>
+                        <PublicBtn
+                          className={t.selected === inputs.publicYN ? 'selected' : 'unselected'}
+                          onClick={() => {
+                            inputs.publicYN = t.selected;
+                            setPublicSelected(inputs.publicYN);
+                          }}
+                        >
+                          {t.text}
+                        </PublicBtn>
                       </PlanetWrapper>
                     </>
                   );
                 })}
               </PublicBtnWrapper>
 
-              <SubmitBtn>작성완료</SubmitBtn>
+              <SubmitBtn onClick={saveJourneyClick}>작성완료</SubmitBtn>
             </JourneyPublic>
           </LeftWrap>
           <RightWrap>
