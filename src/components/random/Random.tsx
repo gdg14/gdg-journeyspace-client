@@ -1,4 +1,8 @@
+import { useEffect } from 'react';
 import styled from 'styled-components';
+import { useReactiveVar } from '@apollo/client';
+import randomJourney from '../../stores/RandomJourney';
+import useRandomJourney from '../../hooks/random/useRandomJourney';
 
 import useBoolean from '../../hooks/common/useBoolean';
 
@@ -13,6 +17,12 @@ const Wrapper = styled.article`
 
 function Random() {
   const { data: showingComment, setTrue: onShowComment } = useBoolean(false);
+  const journey = useReactiveVar(randomJourney);
+  const { getRandomJourney } = useRandomJourney();
+
+  useEffect(() => {
+    getRandomJourney();
+  }, []);
 
   return (
     <>
@@ -21,7 +31,7 @@ function Random() {
         <Article />
       </Wrapper>
       <CommentSelect showingComment={showingComment} onShowComment={onShowComment} />
-      {showingComment && <CommentModal diaryId={1} />}
+      {showingComment && journey !== null && <CommentModal diaryId={journey.id} />}
     </>
   );
 }

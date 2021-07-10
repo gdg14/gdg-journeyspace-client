@@ -23,13 +23,11 @@ interface IProps {
 function CommentModal({ showingComment, onShowComment }: IProps) {
   return (
     <Wrapper>
-      {!showingComment ? (
+      {!showingComment && (
         <>
           <CommentSelectBalloons onShowComment={onShowComment} />
           <AstronautImage alt="astronaut_image" src={`${process.env.PUBLIC_URL}/astronaut.png`} />
         </>
-      ) : (
-        <div>dsa</div>
       )}
     </Wrapper>
   );
