@@ -6,7 +6,6 @@ import Journey from '../components/journey/Journey';
 
 function Home() {
   const { pathname } = useLocation();
-  console.log(pathname)
   return (
     <MainCard>
         <Route path="/home" component={HomeMain} />
