@@ -8,6 +8,7 @@ const Wrapper = styled.article`
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  background-color: red;
 `;
 
 const JourneyTop = styled.article`
@@ -16,7 +17,16 @@ const JourneyTop = styled.article`
     display: flex;
     justify-content: center;
     flex-direction: column;
+    background-color: blue;
 `;
+
+const JourneyCardList = styled.div`
+  background-color: yellow;
+  overflow-y: scroll;
+  width: 90%;
+  max-height: 680px;
+`
+
 
 const Order = styled.div`
   flex: 1;
@@ -31,7 +41,7 @@ const Write = styled.div`
   align-items: center;
 `
 
-const elements = ['one', 'two', 'three'];
+const elements = ['one', 'two', 'three', 'three'];
 
 const StyledButton = styled.button`
   padding: 0.375rem 0.75rem;
@@ -49,10 +59,6 @@ const WriteIcon = styled.img`
   width: 60px;
 `;
 
-const JourneyCardList = styled.div`
-  backgroud-color: red; 
-  width: 90%;
-`
 
 function Journey() {
   return (
