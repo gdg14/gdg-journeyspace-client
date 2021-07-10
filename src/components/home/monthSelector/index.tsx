@@ -10,7 +10,7 @@ const Wrapper = styled.div`
   background-color: white;
 
   top: 0px;
-  right: -200px;
+  right: -180px;
 
   width: 150px;
   height: 230px;
