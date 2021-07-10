@@ -2,18 +2,17 @@ import { Switch, Route, useLocation } from 'react-router-dom';
 import MainCard from '../components/template/MainCard';
 
 import HomeMain from '../components/home/HomeMain';
+import Journey from '../components/journey/Journey';
 
 function Home() {
   const { pathname } = useLocation();
-
+  console.log(pathname)
   return (
     <MainCard>
-      <Switch>
-        <Route path={`${pathname}/`} exact component={HomeMain} />
-        <Route path={`${pathname}/journey`} exact component={() => <div>일기쓰기</div>} />
-        <Route path={`${pathname}/random`} exact component={() => <div>둘러보기</div>} />
-        <Route path={`${pathname}/favorites`} exact component={() => <div>즐겨찾기</div>} />
-      </Switch>
+        <Route path="/home" component={HomeMain} />
+        <Route path="/journey" component={Journey} />
+        <Route path="/random" exact component={() => <div>둘러보기</div>}  />
+        <Route path="/favorites" exact component={() => <div>즐겨찾기</div>}  />
     </MainCard>
   );
 }

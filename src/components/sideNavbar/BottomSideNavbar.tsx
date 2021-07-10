@@ -23,7 +23,7 @@ function BottomSideNavbar() {
   return (
     <Wrapper>
       <MenuWrapper>
-        <SideMenuTitle to="/" selected={pathname === '/'}>
+        <SideMenuTitle to="/home" selected={pathname === '/home'}>
           홈
         </SideMenuTitle>
         <SideMenuTitle to="/journey" selected={pathname === '/journey'}>
