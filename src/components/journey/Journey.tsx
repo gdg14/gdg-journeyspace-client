@@ -106,7 +106,7 @@ function Journey() {
   const [item, setItem] = useState([]);
   const { data } = useQuery(GET_DIARY_USER, {
     fetchPolicy: 'no-cache',
-    variables: { usrId: 'test' },
+    variables: { usrId: '프로도' },
   });
 
   useEffect(() => {

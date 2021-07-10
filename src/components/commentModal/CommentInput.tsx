@@ -77,7 +77,7 @@ function CommentInput({ diaryId }: IProps) {
         <AddIcon />
       </IconWrapper>
       <CommentTextInput value={comment} onChange={onChangeComment} placeholder="메시지를 입력하세요." />
-      <IconWrapper onClick={!loading ? () => onSubmit({ usrId: 'test', diaryId, content: comment }) : undefined}>
+      <IconWrapper onClick={!loading ? () => onSubmit({ usrId: '프로도', diaryId, content: comment }) : undefined}>
         <ArrowUpwardIcon />
       </IconWrapper>
     </Wrapper>
