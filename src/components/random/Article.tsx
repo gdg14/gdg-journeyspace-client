@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { useReactiveVar } from '@apollo/client';
+import randomyJourney from '../../stores/RandomJourney';
 
 import ArticleJourney from './ArticleJourney';
 import ArticleImages from './ArticleImages';
@@ -29,11 +31,19 @@ const ArticleDivider = styled.hr`
 `;
 
 function Article() {
+  const journey = useReactiveVar(randomyJourney);
+
   return (
     <Wrapper>
-      <ArticleJourney />
-      <ArticleDivider />
-      <ArticleImages />
+      {journey !== null ? (
+        <>
+          <ArticleJourney content={journey.content} />
+          <ArticleDivider />
+          <ArticleImages photos={[journey.photo1, journey.photo2, journey.photo3]} />
+        </>
+      ) : (
+        <>로딩중...</>
+      )}
     </Wrapper>
   );
 }
