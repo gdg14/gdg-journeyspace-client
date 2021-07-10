@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import moment from 'moment';
+import { ArrowIconButton } from '../../common/Calender';
 
 const Wrapper = styled.div`
   display: flex;
@@ -17,12 +18,6 @@ const YearTitle = styled.h1`
   font-weight: bold;
 `;
 
-const IconButton = styled.button`
-  cursor: pointer;
-  border: none;
-  background-color: transparent;
-`;
-
 interface IProps {
   selectedDate: moment.Moment;
   increaseYear: () => void;
@@ -32,13 +27,13 @@ interface IProps {
 function Header({ selectedDate, increaseYear, decreaseYear }: IProps) {
   return (
     <Wrapper>
-      <IconButton onClick={decreaseYear}>
+      <ArrowIconButton onClick={decreaseYear}>
         <ChevronLeftIcon />
-      </IconButton>
+      </ArrowIconButton>
       <YearTitle>{selectedDate.format('YYYY')}</YearTitle>
-      <IconButton onClick={increaseYear}>
+      <ArrowIconButton onClick={increaseYear}>
         <ChevronRightIcon />
-      </IconButton>
+      </ArrowIconButton>
     </Wrapper>
   );
 }
