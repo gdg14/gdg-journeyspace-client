@@ -77,10 +77,6 @@ interface Journey {
   date: string;
 }
 
-export const JourneyDetail = (idx: number) => {
-  console.log(idx);
-};
-
 const JourneyItem = (temp: Journey) => {
   const item: Journey = temp;
   return (

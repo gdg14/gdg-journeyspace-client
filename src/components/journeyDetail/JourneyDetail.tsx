@@ -196,14 +196,6 @@ const TextTitleFeeling = styled.h6`
   text-align: center;
 `;
 
-const TestWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 20px;
-  justify-content: center;
-`;
-
 const img = [
   {
     idx: 1,
@@ -262,11 +254,7 @@ const PlanetlList = [
 ];
 
 function JourneyDetail() {
-  const [PlanetSelected, setPlanetSelected] = useState('happy');
-
-  const onChangeComment = (item: string) => {
-    setPlanetSelected(item);
-  };
+  const [PlanetSelected] = useState('happy');
 
   return (
     <Wrapper>
@@ -293,7 +281,7 @@ function JourneyDetail() {
             <JourneyImg>
               <TextTitle>오늘의 사진</TextTitle>
               <ImgWrapper>
-                {img.map((t, index) => {
+                {img.map((t) => {
                   return (
                     <>
                       <TodayImgWrapper>
@@ -310,7 +298,7 @@ function JourneyDetail() {
             <JourneyFeeling>
               <TextTitle>오늘의 기분</TextTitle>
               <PlanetImgWrapper>
-                {PlanetlList.map((t, index) => {
+                {PlanetlList.map((t) => {
                   return (
                     <>
                       <PlanetWrapper>

@@ -7,7 +7,6 @@ import JourneyDetail from '../components/journeyDetail/JourneyDetail';
 import WriteJourney from '../components/writeJourney/WriteJourney';
 import Random from '../components/random/Random';
 import ActivityLog from '../components/activityLog/ActivityLog';
-import JourneyItem from '../components/journey/JourneyItem';
 import Recent from '../components/recent/Recent';
 
 function Home() {

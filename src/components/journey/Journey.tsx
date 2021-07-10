@@ -115,7 +115,7 @@ function Journey() {
         </Write>
       </JourneyTop>
       <JourneyCardList>
-        {elements.map((t, index) => {
+        {elements.map((t) => {
           return <JourneyItem key={t.idx} idx={t.idx} title={t.title} contents={t.contents} date={t.date} />;
         })}
       </JourneyCardList>

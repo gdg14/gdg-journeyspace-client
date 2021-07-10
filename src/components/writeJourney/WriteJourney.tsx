@@ -90,12 +90,6 @@ const TitleInput = styled.input`
   // margin-top: 1px;
 `;
 
-const Content = styled.p`
-  line-height: 30px;
-  margin-top: 10px;
-  font-size: 14px;
-`;
-
 const ImgUpload = styled.div`
   width: 190px;
   height: 140px;
@@ -202,14 +196,6 @@ const TextTitleFeeling = styled.h6`
   text-align: center;
 `;
 
-const TestWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 20px;
-  justify-content: center;
-`;
-
 const ContentTextArea = styled.textarea`
   background-color: transparent;
   border: none;
@@ -217,11 +203,6 @@ const ContentTextArea = styled.textarea`
   font-size: 15px;
   margin-top: 10px;
   max-height: 200px;
-`;
-
-const JourneyHr = styled.hr`
-  border: solid 0.1px darkgray;
-  width: 80px;
 `;
 
 const Write = styled.div`
@@ -390,7 +371,7 @@ function WriteJourney() {
             <JourneyImg>
               <TextTitle>오늘의 사진</TextTitle>
               <ImgWrapper>
-                {img.map((t, index) => {
+                {img.map(() => {
                   return (
                     <>
                       <TodayImgWrapper>
@@ -421,7 +402,7 @@ function WriteJourney() {
             <JourneyPublic>
               <TextTitle>일기 공개</TextTitle>
               <PublicBtnWrapper>
-                {PublicBtnList.map((t, index) => {
+                {PublicBtnList.map((t) => {
                   return (
                     <>
                       <PlanetWrapper>
@@ -439,7 +420,7 @@ function WriteJourney() {
             <JourneyFeeling>
               <TextTitle>오늘의 기분</TextTitle>
               <PlanetImgWrapper>
-                {PlanetlList.map((t, index) => {
+                {PlanetlList.map((t) => {
                   return (
                     <>
                       <PlanetWrapper onClick={() => onChangeComment(t.val)}>
