@@ -52,7 +52,7 @@ const JourneyFeelingDetail = styled.div`
 const TextTitle = styled.h6`
   font-weight: bold;
   font-size: 20px;
-  margin-top: 25px;
+  margin-top: 20px;
 `;
 
 const JourneyTop = styled.span`
@@ -334,6 +334,24 @@ const PublicBtn = styled.button.attrs((props) => ({
   }
 `;
 
+const SubmitBtn = styled.button.attrs((props) => ({
+  className: props.className,
+}))`
+  // font-size: 1rem;
+  line-height: 1.5;
+  color: gray;
+  width: 100%;
+  height: 50px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  background-color: #f5f5f5;
+  border: 1px solid #f5f5f5;
+  margin-top: 10px;
+  &.selected {
+    background-color: #ffdd00;
+    border: 1px solid #ffdd00;
+  }
+`;
+
 function WriteJourney() {
   const writeData = {
     title: '',
@@ -397,6 +415,8 @@ function WriteJourney() {
                   );
                 })}
               </PublicBtnWrapper>
+
+              <SubmitBtn>작성완료</SubmitBtn>
             </JourneyPublic>
           </LeftWrap>
           <RightWrap>
