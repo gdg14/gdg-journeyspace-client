@@ -7,18 +7,18 @@ import { WeekWrapper, DayText } from '../../common/Calender';
 
 const DayWrapper = styled.div`
   position: relative;
-
-  z-index: 1;
 `;
 
 const TodayCircle = styled.div`
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: 50px;
+  height: 50px;
 
-  border: 1px solid black;
+  border: 2.5px solid black;
   border-radius: 100%;
-  z-index: 2;
+
+  top: -15px;
+  left: -4px;
 `;
 
 interface IProps {
