@@ -30,7 +30,7 @@ function Calender() {
   return (
     <Wrapper>
       <Header nowDate={nowDate} selectDate={selectDate} />
-      <Body />
+      <Body nowDate={nowDate} />
     </Wrapper>
   );
 }

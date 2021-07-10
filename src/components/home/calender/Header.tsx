@@ -7,6 +7,8 @@ const DateTitle = styled.h1`
   font-size: 40px;
 
   cursor: pointer;
+
+  margin-bottom: 20px;
 `;
 
 interface IProps {
