@@ -8,6 +8,7 @@ const Wrapper = styled.article`
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  padding: 10px;
 `;
 
 const JourneyTop = styled.article`
@@ -16,6 +17,7 @@ const JourneyTop = styled.article`
     display: flex;
     justify-content: center;
     flex-direction: column;
+    margin-top: 30px;
 `;
 
 const JourneyCardList = styled.div`
@@ -73,7 +75,7 @@ const elements = [
 ];
 
 const StyledButton = styled.button`
-  padding: 0.375rem 0.75rem;
+  // padding: 0.375rem 0.75rem;
   font-size: 1rem;
   line-height: 1.5;
   border: 1px solid lightgray;
@@ -85,8 +87,12 @@ const StyledButton = styled.button`
 `;
 
 const WriteIcon = styled.img`
-  width: 60px;
+  width: 50px;
 `;
+
+const WriteText = styled.span`
+  font-size: 18px
+`
 
 
 function Journey() {
@@ -98,7 +104,7 @@ function Journey() {
         </Order>
         <Write>
         <WriteIcon alt="write_icon" src={`${process.env.PUBLIC_URL}/icon/add_btn.png`} />
-          오늘 일기쓰기
+          <WriteText>오늘 일기쓰기</WriteText>
         </Write>
       </JourneyTop>
       <JourneyCardList>
