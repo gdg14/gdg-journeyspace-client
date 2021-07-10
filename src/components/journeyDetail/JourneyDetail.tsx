@@ -1,5 +1,9 @@
-import { useState } from 'react';
+import { useQuery } from '@apollo/client';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
+import moment from 'moment';
+import { GET_DIARY_ID } from '../home/gql';
 
 const Wrapper = styled.article`
   width: 100%;
@@ -253,29 +257,42 @@ const PlanetlList = [
   },
 ];
 
+interface Journey {
+  idx: number;
+  title: string;
+  contents: string;
+  date: string;
+}
+
 function JourneyDetail() {
+  const params: any = useParams();
+  const [item, setItem] = useState([]);
+  const { data } = useQuery(GET_DIARY_ID, {
+    fetchPolicy: 'no-cache',
+    variables: { id: params.id },
+  });
+
+  useEffect(() => {
+    if (data) {
+      setItem(data.getDiaryById);
+    }
+  }, [data, item]);
+
+  const temp: any = item;
+
   const [PlanetSelected] = useState('happy');
 
   return (
     <Wrapper>
       <Height>
         <JourneyTop>
-          <Date>7.07</Date> <Title>&nbsp;안녕</Title>
+          <Date>{moment().format('MM.DD')}</Date> <Title>&nbsp;{temp.title}</Title>
         </JourneyTop>
         <ItemWrapper>
           <LeftWrap>
             <JourneyContent>
               <TextTitle>오늘의 일기</TextTitle>
-              <Content>
-                오늘 도서관에 오랜만에 다녀왔다 내 스스로의 이야기에서 벗어나고 싶다는 생각을 종종 한다. 내 이야기 말고
-                다른 사람의 이야기에 빠지고 싶다 그럴 때 책을 읽으면 도움이 된다 잠시 내 이야기에서 벗어날 수 있고 다른
-                사람의 관점으로 세상을 볼 수 있다. 오늘은 애인과 다투었다. 얄밉게 깐죽거리며 까부는 것이 내 신경을
-                거슬렀다. 사소한 기분 나쁨에서 큰 싸움으로 번졌다. 사랑하는 사이일 수록 가까운 사이일수록 서로 상처
-                입히기 쉽고 져주기는 쉽지 않다. 남이라면 욕하고 말 일인데 사랑하는 사이이기 때문에 내 마음을 알아주길
-                원하고 내 생각을 이해 받길 원하다보니 다툼이 생긴다. 어렵다. 마음으로는 그냥 한번 져주지 한번을
-                안져준다고 생각을 한다. 나도 마찬가지면서.. 그렇다고 사과를 기어이 받아내도 기분이 썩 좋지 않다. 얄밉고
-                못마땅하다. 사랑하지만 다툴 땐 아껴주고 싶은 마음보다 상처 주고 싶은 마음이 더 크다. 아이러니 하다.
-              </Content>
+              <Content>{temp.content}</Content>
             </JourneyContent>
 
             <JourneyImg>

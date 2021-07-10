@@ -76,15 +76,17 @@ interface Journey {
   title: string;
   contents: string;
   date: string;
+  feelings: string;
 }
 
 const JourneyItem = (temp: Journey) => {
   const item: Journey = temp;
+  console.log(item);
   const history = useHistory();
   return (
     <JourneyCard
       onClick={() => {
-        history.push(`/journeyy/${item.idx}`);
+        history.push(`/journey/${item.idx}`);
       }}
     >
       <CardWrapper>
@@ -92,7 +94,10 @@ const JourneyItem = (temp: Journey) => {
           <CardTop>
             <Date>{moment(item.date).format('MM.DD')}</Date> <Title>&nbsp;{item.title}</Title>
             <Icon>
-              <FeelingImg alt="write_icon" src={`${process.env.PUBLIC_URL}/planet/selected/happy.png`} />
+              <FeelingImg
+                alt="write_icon"
+                src={`${process.env.PUBLIC_URL}/planet/selected/${item.feelings ? item.feelings : 'happy'}.png`}
+              />
             </Icon>
           </CardTop>
           <CardContents key={item.idx}>{item.contents}</CardContents>

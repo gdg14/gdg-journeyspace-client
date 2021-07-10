@@ -13,8 +13,8 @@ function Home() {
   return (
     <MainCard>
       <Route path="/home" component={HomeMain} />
-      <Route path="/journey" component={Journey} />
-      <Route path="/journeyy/:id" component={JourneyDetail} />
+      <Route exact path="/journey" component={Journey} />
+      <Route exact path="/journey/:id" component={JourneyDetail} />
       <Route path="/write-journey" component={WriteJourney} />
       <Route path="/log" exact component={ActivityLog} />
       <Route path="/random" exact component={Random} />
