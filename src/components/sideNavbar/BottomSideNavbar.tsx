@@ -27,7 +27,7 @@ function BottomSideNavbar() {
           홈
         </SideMenuTitle>
         <SideMenuTitle to="/journey" selected={pathname === '/journey'}>
-          일기쓰기
+          일기관리
         </SideMenuTitle>
         <SideMenuTitle to="/random" selected={pathname === '/random'}>
           둘러보기
