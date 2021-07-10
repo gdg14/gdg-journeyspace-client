@@ -6,7 +6,7 @@ const GlobalStyle = createGlobalStyle`
 
     * {
         box-sizing: border-box;
-
+        color: #333333;
         margin: 0;
     }
 
