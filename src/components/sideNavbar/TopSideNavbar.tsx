@@ -74,7 +74,9 @@ function TopSideNavbar() {
         <SideMenuTitle to="/log" selected={pathname === '/log'}>
           활동내역
         </SideMenuTitle>
-        <SideMenuTitle to="/">최근본 일기</SideMenuTitle>
+        <SideMenuTitle to="/recent" selected={pathname === '/recent'}>
+          최근본 일기
+        </SideMenuTitle>
       </MenuWrapper>
     </Wrapper>
   );
