@@ -5,8 +5,9 @@ import calenderDate, { selectCalenderDate } from '../../../stores/Calender';
 
 const DateTitle = styled.h1`
   text-align: center;
-  padding: 20px;
-  font-size: 40px;
+  padding: 22px 0px;
+  font-size: 32px;
+  font-weight: bold;
 
   cursor: pointer;
 

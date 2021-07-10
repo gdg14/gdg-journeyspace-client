@@ -12,7 +12,7 @@ const weekdayList = [
 
 function Weekday() {
   return (
-    <WeekWrapper>
+    <WeekWrapper isWeekday>
       {weekdayList.map((item) => (
         <DayText key={item.id}>{item.name}</DayText>
       ))}

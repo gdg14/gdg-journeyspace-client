@@ -3,16 +3,19 @@ import styled from 'styled-components';
 import Calender from './calender';
 
 const Wrapper = styled.article`
-  width: 70%;
-  height: 85%;
+  width: 600px;
+  height: 650px;
+
+  display: flex;
+  flex-direction: column;
 `;
 
 const HeaderText = styled.h1`
-  font-size: 28px;
+  font-size: 24px;
   text-align: center;
-  color: #505050;
+  color: #333333;
 
-  height: 10%;
+  margin-bottom: 24px;
 `;
 
 function HomeMain() {

@@ -5,7 +5,6 @@ import Body from './Body';
 
 const Wrapper = styled.div`
   width: 100%;
-  height: 90%;
 
   background-color: white;
 
@@ -14,6 +13,7 @@ const Wrapper = styled.div`
   padding: 0px 50px;
 
   display: flex;
+  flex: 1;
   flex-direction: column;
   justify-content: space-between;
 `;
