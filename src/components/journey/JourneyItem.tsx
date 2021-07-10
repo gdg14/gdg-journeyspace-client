@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import moment from 'moment';
+import { useHistory } from 'react-router-dom';
 
 const JourneyCard = styled.div`
   width: 100%;
@@ -79,10 +80,11 @@ interface Journey {
 
 const JourneyItem = (temp: Journey) => {
   const item: Journey = temp;
+  const history = useHistory();
   return (
     <JourneyCard
       onClick={() => {
-        window.location.replace(`/journeyy/${item.idx}`);
+        history.push(`/journeyy/${item.idx}`);
       }}
     >
       <CardWrapper>
