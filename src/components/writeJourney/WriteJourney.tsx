@@ -144,6 +144,15 @@ const PlanetImg = styled.img`
   margin: 0 auto;
 `;
 
+const SelectedPlanetImg = styled.img`
+  width: 40px;
+  height: 40px;
+  margin-right: 5px;
+  display: block;
+  margin: 0 auto;
+  // border: 1px solid yellow;
+`;
+
 const TodayImgWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -358,6 +367,13 @@ function WriteJourney() {
     content: '',
   };
 
+  // let PlanetSelected = 'happy';
+  const [PlanetSelected, setPlanetSelected] = useState('happy');
+
+  const onChangeComment = (item: string) => {
+    setPlanetSelected(item);
+  };
+
   return (
     <Wrapper>
       <Height>
@@ -426,8 +442,18 @@ function WriteJourney() {
                 {PlanetlList.map((t, index) => {
                   return (
                     <>
-                      <PlanetWrapper>
-                        <PlanetImg alt="planet_list" src={`${process.env.PUBLIC_URL}/planet/unselected/${t.val}.svg`} />
+                      <PlanetWrapper onClick={() => onChangeComment(t.val)}>
+                        {PlanetSelected === t.val ? (
+                          <SelectedPlanetImg
+                            alt="planet_list"
+                            src={`${process.env.PUBLIC_URL}/planet/selected/${t.val}.png`}
+                          />
+                        ) : (
+                          <PlanetImg
+                            alt="planet_list"
+                            src={`${process.env.PUBLIC_URL}/planet/unselected/${t.val}.svg`}
+                          />
+                        )}
                         <ImgText>{t.text}</ImgText>
                       </PlanetWrapper>
                     </>
@@ -439,7 +465,10 @@ function WriteJourney() {
             <JourneyFeelingDetail>
               <TextTitleFeeling>기쁨</TextTitleFeeling>
               <PlanetSelectWrapper>
-                <PlanetSelectImg alt="planet_list" src={`${process.env.PUBLIC_URL}/planet/unselected/happy.svg`} />
+                <PlanetSelectImg
+                  alt="planet_list"
+                  src={`${process.env.PUBLIC_URL}/planet/selected/${PlanetSelected}.png`}
+                />
                 <PlanetSelectTitle>지구</PlanetSelectTitle>
                 <PlanetSelectContent>
                   지구인들의 고향이기도 한 지구는 풍부한 산소와 자원들로 기쁜 감정을 제공해요
