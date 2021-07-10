@@ -21,7 +21,7 @@ function Random() {
         <Article />
       </Wrapper>
       <CommentSelect showingComment={showingComment} onShowComment={onShowComment} />
-      {showingComment && <CommentModal />}
+      {showingComment && <CommentModal diaryId={1} />}
     </>
   );
 }

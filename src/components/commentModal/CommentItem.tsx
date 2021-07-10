@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { IComment } from './interface';
+
 const Wrapper = styled.div``;
 
 const CommentInfoWrapper = styled.article`
@@ -56,20 +58,26 @@ const CommentDescription = styled.p`
   margin-bottom: 10px;
 `;
 
-function CommentItem() {
+interface IProps {
+  comment: IComment;
+}
+
+function CommentItem({ comment }: IProps) {
   return (
     <Wrapper>
       <CommentInfoWrapper>
         <ProfileWrapper>
           <ProfileImage alt="comment_image" src={`${process.env.PUBLIC_URL}/user/default_profile.png`} />
           <div>
-            <ProfileName>랜덤일기 {'>'}</ProfileName>
+            <ProfileName>
+              {comment.usr.name} {'>'}
+            </ProfileName>
             <ProfileReportButton>신고</ProfileReportButton>
           </div>
         </ProfileWrapper>
         <CommentCreatedDate>2021년 7월 3일</CommentCreatedDate>
       </CommentInfoWrapper>
-      <CommentDescription>Lorem ipsum dolor sit amet, consetetur</CommentDescription>
+      <CommentDescription>{comment.content}</CommentDescription>
     </Wrapper>
   );
 }

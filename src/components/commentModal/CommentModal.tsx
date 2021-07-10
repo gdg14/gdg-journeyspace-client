@@ -1,7 +1,11 @@
 import styled from 'styled-components';
+import { useState } from 'react';
+import { useQuery } from '@apollo/client';
+import { GET_COMMENT_LIST } from './gql';
 
 import Header from './Header';
 import Body from './Body';
+import { IComment } from './interface';
 
 const Wrapper = styled.div`
   position: absolute;
@@ -23,12 +27,31 @@ const ModalDivider = styled.hr`
   height: 2px;
 `;
 
-function CommentModal() {
+interface IProps {
+  diaryId: number;
+  isMyJourney?: boolean;
+}
+
+function CommentModal({ isMyJourney, diaryId }: IProps) {
+  const [comments, setComments] = useState<IComment[]>([]);
+
+  const { loading } = useQuery(GET_COMMENT_LIST, {
+    fetchPolicy: 'no-cache',
+    variables: {
+      diaryId,
+    },
+    onCompleted: (data) => {
+      if (data !== undefined && data.getComments !== undefined) {
+        setComments([...data.getComments]);
+      }
+    },
+  });
+
   return (
     <Wrapper>
       <Header />
       <ModalDivider />
-      <Body isMyJourney={false} />
+      {!loading && <Body comments={comments} isMyJourney={isMyJourney} diaryId={diaryId} />}
     </Wrapper>
   );
 }
