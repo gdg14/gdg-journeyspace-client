@@ -9,12 +9,10 @@ function Home() {
   console.log(pathname)
   return (
     <MainCard>
-      <Switch>
-        {/* <Route path={`${pathname}/`} exact component={HomeMain} /> */}
-        <Route path={`${pathname}`} exact component={Journey} />
-        {/* <Route path={`${pathname}/random`} exact component={() => <div>둘러보기</div>} />
-        <Route path={`${pathname}/favorites`} exact component={() => <div>즐겨찾기</div>} /> */}
-      </Switch>
+        <Route path="/home" component={HomeMain} />
+        <Route path="/journey" component={Journey} />
+        <Route path="/random" exact component={() => <div>둘러보기</div>}  />
+        <Route path="/favorites" exact component={() => <div>즐겨찾기</div>}  />
     </MainCard>
   );
 }
