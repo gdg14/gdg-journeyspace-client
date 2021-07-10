@@ -4,7 +4,7 @@ import Calender from './calender';
 
 const Wrapper = styled.article`
   width: 600px;
-  height: 650px;
+  height: 630px;
 
   display: flex;
   flex-direction: column;

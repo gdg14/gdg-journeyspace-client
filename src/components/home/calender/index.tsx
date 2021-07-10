@@ -3,8 +3,11 @@ import styled from 'styled-components';
 import Header from './Header';
 import Body from './Body';
 
+import MonthSelector from '../monthSelector';
+
 const Wrapper = styled.div`
   width: 100%;
+  position: relative;
 
   background-color: white;
 
@@ -23,6 +26,7 @@ function Calender() {
     <Wrapper>
       <Header />
       <Body />
+      <MonthSelector />
     </Wrapper>
   );
 }
