@@ -75,7 +75,7 @@ function TopSideNavbar() {
           활동내역
         </SideMenuTitle>
         <SideMenuTitle to="/recent" selected={pathname === '/recent'}>
-          최근본 일기
+          최근 본 일기
         </SideMenuTitle>
       </MenuWrapper>
     </Wrapper>

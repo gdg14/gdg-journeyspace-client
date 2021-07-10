@@ -19,7 +19,7 @@ function Home() {
       <Route path="/write-journey" component={WriteJourney} />
       <Route path="/log" exact component={ActivityLog} />
       <Route path="/random" exact component={Random} />
-      <Route path="/favorites" exact component={() => <div>즐겨찾기</div>} />
+      <Route path="/favorites" exact component={() => <div>마이페이지</div>} />
       <Route path="/recent" exact component={Recent} />
     </MainCard>
   );
