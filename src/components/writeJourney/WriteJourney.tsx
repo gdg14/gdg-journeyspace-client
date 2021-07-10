@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.article`
@@ -315,15 +316,22 @@ const PublicBtnWrapper = styled.div`
   display: flex;
 `;
 
-const PublicBtn = styled.button`
+const PublicBtn = styled.button.attrs((props) => ({
+  className: props.className,
+}))`
   // font-size: 1rem;
   line-height: 1.5;
-  border: 1px solid #ffdd00;
   color: gray;
-  background-color: #ffdd00;
   width: 200px;
   height: 60px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  background-color: white;
+  border: 1px solid white;
+
+  &.selected {
+    background-color: #ffdd00;
+    border: 1px solid #ffdd00;
+  }
 `;
 
 function WriteJourney() {
@@ -331,6 +339,7 @@ function WriteJourney() {
     title: '',
     content: '',
   };
+
   return (
     <Wrapper>
       <Height>
@@ -382,7 +391,7 @@ function WriteJourney() {
                   return (
                     <>
                       <PlanetWrapper>
-                        <PublicBtn>{t.text}</PublicBtn>
+                        <PublicBtn className={t.selected ? 'selected' : ''}>{t.text}</PublicBtn>
                       </PlanetWrapper>
                     </>
                   );
