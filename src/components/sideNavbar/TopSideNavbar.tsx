@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { useLocation } from 'react-router-dom';
 
 import { SideMenuTitle } from '../common/title';
 
@@ -57,6 +58,8 @@ const ProfileInfo = styled.p`
 `;
 
 function TopSideNavbar() {
+  const { pathname } = useLocation();
+
   return (
     <Wrapper>
       <ServiceTitle>JOURNEY SPACE</ServiceTitle>
@@ -68,7 +71,9 @@ function TopSideNavbar() {
             <ProfileInfo>193일째 여행중</ProfileInfo>
           </div>
         </ProfileWrapper>
-        <SideMenuTitle to="/">활동내역</SideMenuTitle>
+        <SideMenuTitle to="/log" selected={pathname === '/log'}>
+          활동내역
+        </SideMenuTitle>
         <SideMenuTitle to="/">최근본 일기</SideMenuTitle>
       </MenuWrapper>
     </Wrapper>
