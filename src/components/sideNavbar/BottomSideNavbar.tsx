@@ -33,7 +33,7 @@ function BottomSideNavbar() {
           둘러보기
         </SideMenuTitle>
         <SideMenuTitle to="/favorites" selected={pathname === '/favorites'}>
-          즐겨찾기
+          마이페이지
         </SideMenuTitle>
       </MenuWrapper>
     </Wrapper>
