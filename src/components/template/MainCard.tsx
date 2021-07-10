@@ -5,8 +5,8 @@ import SideNavbar from '../sideNavbar/SideNavbar';
 const Wrapper = styled.section`
   display: flex;
 
-  width: 75%;
-  height: 80%;
+  width: 1310px;
+  height: 700px;
 
   background-color: #f0f0f0;
 `;
