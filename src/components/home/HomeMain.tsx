@@ -29,6 +29,8 @@ function HomeMain() {
     fetchPolicy: 'no-cache',
     variables: { yyyymm: date.format('YYYYMM') },
     onCompleted: (item) => {
+      console.log(item);
+      console.log(date.format('YYYYMM'));
       setNowMonthDiaries([
         ...item.getDiaryByMonth.map((item: any) => ({
           id: item.id,

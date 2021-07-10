@@ -1,5 +1,8 @@
+import { useLazyQuery, useQuery } from '@apollo/client';
+import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
+import { GET_DIARY_USER } from '../home/gql';
 import JourneyItem from './JourneyItem';
 
 const Wrapper = styled.article`
@@ -100,6 +103,18 @@ const WriteText = styled.span`
 function Journey() {
   const history = useHistory();
 
+  const [item, setItem] = useState([]);
+  const { data } = useQuery(GET_DIARY_USER, {
+    fetchPolicy: 'no-cache',
+    variables: { usrId: 'test' },
+  });
+
+  useEffect(() => {
+    if (data) {
+      setItem(data.getDiaryListByUsr);
+    }
+  }, [data, item]);
+
   return (
     <Wrapper>
       <JourneyTop>
@@ -118,8 +133,8 @@ function Journey() {
         </Write>
       </JourneyTop>
       <JourneyCardList>
-        {elements.map((t) => {
-          return <JourneyItem key={t.idx} idx={t.idx} title={t.title} contents={t.contents} date={t.date} />;
+        {item.map((t: any) => {
+          return <JourneyItem key={t.idx} idx={t.id} title={t.title} contents={t.content} date={t.date} />;
         })}
       </JourneyCardList>
     </Wrapper>

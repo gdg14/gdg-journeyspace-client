@@ -29,3 +29,19 @@ export const SAVE_DIARY = gql`
     )
   }
 `;
+
+export const GET_DIARY_USER = gql`
+  query getDiaryListByUsr($usrId: String!) {
+    getDiaryListByUsr(usrId: $usrId) {
+      id
+      usr {
+        id
+      }
+      title
+      content
+      feelings
+      category
+      publicYN
+    }
+  }
+`;
