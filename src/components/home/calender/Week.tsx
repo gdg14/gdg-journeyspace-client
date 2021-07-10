@@ -50,10 +50,8 @@ function Week({ firstDayOfThisWeek }: IProps) {
         const diary = diaries.filter((item) => item.regDtm.isSame(day, 'day'));
 
         return (
-          <DayWrapper>
-            <DayText key={item} otherMonth={!date.isSame(day, 'month')}>
-              {day.format('D')}
-            </DayText>
+          <DayWrapper key={item}>
+            <DayText otherMonth={!date.isSame(day, 'month')}>{day.format('D')}</DayText>
             {day.isSame(moment(), 'day') && <TodayCircle />}
             {diary.length > 0 && (
               <DayPlanet
