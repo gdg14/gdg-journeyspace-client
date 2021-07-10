@@ -8,3 +8,10 @@ export const SideMenuTitle = styled(Link)<{ selected?: boolean }>`
   text-decoration: none;
   letter-spacing: -0.02em;
 `;
+
+export const RandomArticleSubTitle = styled.h1`
+  font-size: 20px;
+  color: #333333;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+`;
