@@ -9,7 +9,7 @@ const Wrapper = styled.div`
 `;
 
 const SearchBar = styled.input`
-  width: 650px;
+  width: 630px;
   height: 40px;
   border: 1px solid #bbbbbb;
   padding: 5px 50px;

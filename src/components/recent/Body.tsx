@@ -22,8 +22,6 @@ const JourneyWrapper = styled.article`
 const JourneyInfoWrapper = styled.div`
   padding: 30px 40px;
   flex: 1;
-
-  margin-bottom: 20px;
 `;
 
 const JourneyTitleWrapper = styled.div`
@@ -64,8 +62,8 @@ const JourneyDescription = styled.p`
 `;
 
 const JourneyImage = styled.img`
-  height: 100%;
-  max-height: 200px;
+  width: 250px;
+  height: auto;
 `;
 
 function Body() {
@@ -78,7 +76,7 @@ function Body() {
               <JourneyUserTitle>핑구 님의 일기</JourneyUserTitle>
               <JourneyTitle>7.07 가평여행</JourneyTitle>
             </div>
-            <JourneyPlanet alt="journey_planet" src={`${process.env.PUBLIC_URL}/planet/selected/joy.png`} />
+            <JourneyPlanet alt="journey_planet" src={`${process.env.PUBLIC_URL}/planet/selected/happy.png`} />
           </JourneyTitleWrapper>
           <JourneyDescription>
             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eir mod tempor invidunt ut labore
