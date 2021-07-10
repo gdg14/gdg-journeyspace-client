@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.js": "/gdg-client/static/js/main.f6ff7d42.chunk.js",
+    "main.js.map": "/gdg-client/static/js/main.f6ff7d42.chunk.js.map",
+    "runtime-main.js": "/gdg-client/static/js/runtime-main.bed80d04.js",
+    "runtime-main.js.map": "/gdg-client/static/js/runtime-main.bed80d04.js.map",
+    "static/js/2.6fac0d2d.chunk.js": "/gdg-client/static/js/2.6fac0d2d.chunk.js",
+    "static/js/2.6fac0d2d.chunk.js.map": "/gdg-client/static/js/2.6fac0d2d.chunk.js.map",
+    "index.html": "/gdg-client/index.html",
+    "static/js/2.6fac0d2d.chunk.js.LICENSE.txt": "/gdg-client/static/js/2.6fac0d2d.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.bed80d04.js",
+    "static/js/2.6fac0d2d.chunk.js",
+    "static/js/main.f6ff7d42.chunk.js"
+  ]
+}
