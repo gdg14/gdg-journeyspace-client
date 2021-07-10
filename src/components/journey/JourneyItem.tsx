@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import moment from 'moment';
 
 const JourneyCard = styled.div`
-  width: 100%;
+  width: 90%;
   height: 250px;
   background-color: white;
   margin: 15px;
