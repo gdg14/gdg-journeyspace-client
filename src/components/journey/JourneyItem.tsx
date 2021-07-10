@@ -84,7 +84,7 @@ const JourneyItem = (temp: Journey) => {
   return (
     <JourneyCard
       onClick={() => {
-        history.push(`/journeyy/${item.idx}`);
+        history.push(`/journey/${item.idx}`);
       }}
     >
       <CardWrapper>

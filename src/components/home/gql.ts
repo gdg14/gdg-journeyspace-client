@@ -45,3 +45,19 @@ export const GET_DIARY_USER = gql`
     }
   }
 `;
+
+export const GET_DIARY_ID = gql`
+  query getDiaryById($id: Int!) {
+    getDiaryById(id: $id) {
+      id
+      usr {
+        id
+      }
+      title
+      content
+      feelings
+      category
+      publicYN
+    }
+  }
+`;
