@@ -1,6 +1,4 @@
-import { useState } from 'react';
 import styled from 'styled-components';
-import moment from 'moment';
 
 import Header from './Header';
 import Body from './Body';
@@ -21,16 +19,10 @@ const Wrapper = styled.div`
 `;
 
 function Calender() {
-  const [nowDate, setNowDate] = useState(moment());
-
-  const selectDate = (selectedDate: moment.Moment) => {
-    setNowDate(moment(selectedDate));
-  };
-
   return (
     <Wrapper>
-      <Header nowDate={nowDate} selectDate={selectDate} />
-      <Body nowDate={nowDate} />
+      <Header />
+      <Body />
     </Wrapper>
   );
 }

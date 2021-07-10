@@ -1,5 +1,7 @@
 import styled from 'styled-components';
-import moment from 'moment';
+import { useReactiveVar } from '@apollo/client';
+
+import calenderDate, { selectCalenderDate } from '../../../stores/Calender';
 
 const DateTitle = styled.h1`
   text-align: center;
@@ -11,13 +13,20 @@ const DateTitle = styled.h1`
   margin-bottom: 20px;
 `;
 
-interface IProps {
-  nowDate: moment.Moment;
-  selectDate: (selectedDate: moment.Moment) => void;
-}
+function Header() {
+  const date = useReactiveVar(calenderDate);
 
-function Header({ nowDate, selectDate }: IProps) {
-  return <DateTitle onClick={() => selectDate(moment())}>{nowDate.format('yyyy.MM')}</DateTitle>;
+  return (
+    <DateTitle
+      onClick={() => {
+        const selectedDate = date.clone().subtract(1, 'month');
+
+        selectCalenderDate(selectedDate);
+      }}
+    >
+      {date.format('YYYY.MM')}
+    </DateTitle>
+  );
 }
 
 export default Header;

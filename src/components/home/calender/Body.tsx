@@ -1,6 +1,8 @@
 import moment from 'moment';
 import styled from 'styled-components';
+import { useReactiveVar } from '@apollo/client';
 
+import calenderDate from '../../../stores/Calender';
 import Weekday from './Weekday';
 import Week from './Week';
 
@@ -21,22 +23,20 @@ const MonthWrapper = styled.div`
   justify-content: space-around;
 `;
 
-interface IProps {
-  nowDate: moment.Moment;
-}
+function Body() {
+  const date = useReactiveVar(calenderDate);
 
-function Body({ nowDate }: IProps) {
   return (
     <Wrapper>
       <Weekday />
       <MonthWrapper>
         {Array.from(Array(6).keys()).map((item: number) => {
-          const firstDayOfMonth = moment(nowDate).startOf('month');
+          const firstDayOfMonth = moment(date).startOf('month');
           const firstWeekDayOfMonth = firstDayOfMonth.get('d');
 
           const firstDayOfWeek = firstDayOfMonth.clone().subtract(firstWeekDayOfMonth, 'd');
 
-          return <Week nowDate={nowDate} firstDayOfThisWeek={firstDayOfWeek.clone().add(item * 7, 'd')} />;
+          return <Week key={item} firstDayOfThisWeek={firstDayOfWeek.clone().add(item * 7, 'd')} />;
         })}
       </MonthWrapper>
     </Wrapper>
