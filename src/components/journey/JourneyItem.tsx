@@ -59,6 +59,17 @@ const Date = styled.span`
 const Title = styled.span`
   font-size: 24px;
 `;
+
+const Icon = styled.div`
+  text-align: right;
+  margin-top: -20px;
+`;
+
+const FeelingImg = styled.img`
+  width: 30px;
+  height: 30px;
+`;
+
 interface Journey {
   idx: number;
   title: string;
@@ -82,6 +93,9 @@ const JourneyItem = (temp: Journey) => {
         <CardText>
           <CardTop>
             <Date>{moment(item.date).format('MM.DD')}</Date> <Title>&nbsp;{item.title}</Title>
+            <Icon>
+              <FeelingImg alt="write_icon" src={`${process.env.PUBLIC_URL}/planet/selected/happy.png`} />
+            </Icon>
           </CardTop>
           <CardContents key={item.idx}>{item.contents}</CardContents>
         </CardText>
