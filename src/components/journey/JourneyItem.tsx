@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import moment from 'moment';
 
-const JourneyCard = styled.article`
+const JourneyCard = styled.div`
   width: 100%;
   height: 250px;
   background-color: white;
@@ -57,18 +58,31 @@ const Date = styled.span`
 const Title = styled.span`
   font-size: 24px
 `
+interface Journey {
+  idx: number;
+  title: string;
+  contents: string;
+  date: string;
+}
 
-function JourneyItem() {
+export const JourneyDetail = (idx: number) => {
+  console.log(idx)
+};
+
+const JourneyItem = (temp: Journey) => {
+  const item:Journey = temp;
   return (
-    <JourneyCard>
+    <JourneyCard 
+    onClick={() => { 
+      window.location.replace(`/journeyy/${item.idx}`);
+    }}>
       <CardWrapper>
         <CardText>
           <CardTop>
-            <Date>7.07</Date> <Title>&nbsp;가평여행</Title>
+            <Date>{moment(item.date).format('MM.DD')}</Date> <Title>&nbsp;{item.title}</Title>
             </CardTop>
-          <CardContents>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eir mod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam volup tua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gu ber gren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-            Lorem ipsum dolor sit am Lorem ipsum dolor sit am Lorem ipsum dolor sit am Lorem ipsum dolor sit am Lorem ipsum dolor sit am Lorem ipsum dolor sit am
+          <CardContents key={item.idx}>
+            {item.contents}
           </CardContents>
         </CardText>
         <CardImg>
