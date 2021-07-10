@@ -78,7 +78,10 @@ function Header() {
             <FeelingInfoText>
               {journey.usr.name} 님은 {feelingToPlanet(journey.feelings as Feelings)}을(를) 여행중이에요.
             </FeelingInfoText>
-            <FeelingInfoIcon alt="feeling_planet" src={`${process.env.PUBLIC_URL}/planet/selected/sad.png`} />
+            <FeelingInfoIcon
+              alt="feeling_planet"
+              src={`${process.env.PUBLIC_URL}/planet/selected/${journey.feelings}.png`}
+            />
           </FeelingWrapper>
         </>
       ) : (
