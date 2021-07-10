@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 const JourneyCard = styled.article`
-width: 100%;
-height: 200px;
-background-color: white;
-margin: 15px;
-box-shadow: 5px 5px 5px rgba(0,0,0,.2);
+  width: 100%;
+  height: 200px;
+  background-color: white;
+  margin: 15px;
+  box-shadow: 5px 5px 5px rgba(0,0,0,.2);
 `;
 
 const CardWrapper = styled.div`
@@ -42,7 +42,7 @@ const CardContents = styled.div`
   width: 100%;
   height: 100px;
   margin-top: 15px;
-  line-height: 20px;
+  line-height: 25px;
 `;
 
 const Date = styled.span`

@@ -8,7 +8,6 @@ const Wrapper = styled.article`
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  background-color: red;
 `;
 
 const JourneyTop = styled.article`
@@ -17,11 +16,9 @@ const JourneyTop = styled.article`
     display: flex;
     justify-content: center;
     flex-direction: column;
-    background-color: blue;
 `;
 
 const JourneyCardList = styled.div`
-  background-color: yellow;
   overflow-y: scroll;
   width: 90%;
   max-height: 680px;
