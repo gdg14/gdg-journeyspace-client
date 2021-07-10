@@ -1,7 +1,8 @@
-import { gql, useMutation } from '@apollo/client';
+import { useMutation } from '@apollo/client';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
+import { SAVE_DIARY } from '../home/gql';
 
 const Wrapper = styled.article`
   width: 100%;
@@ -346,26 +347,6 @@ const SubmitBtn = styled.button.attrs((props) => ({
   }
 `;
 
-const SAVE_DIARY = gql`
-  mutation saveDiary(
-    $usrId: String!
-    $title: String!
-    $content: String!
-    $feelings: String!
-    $category: String!
-    $publicYN: String!
-  ) {
-    saveDiary(
-      usrId: $usrId
-      title: $title
-      content: $content
-      feelings: $feelings
-      category: $category
-      publicYN: $publicYN
-    )
-  }
-`;
-
 interface Journey {
   usrId: '';
   title: '';
@@ -381,24 +362,11 @@ function WriteJourney() {
     content: '',
   };
 
-  const data: Journey = {
-    usrId: '',
-    title: '',
-    content: '',
-    category: '',
-    feelings: '',
-    publicYN: 'Y',
-  };
-
   const [PublicSelected, setPublicSelected] = useState('Y');
 
   const onChangePublic = (item: string) => {
     setPublicSelected(item);
   };
-
-  // console.log(moviesResult.data)
-
-  // let PlanetSelected = 'happy';
   const [PlanetSelected, setPlanetSelected] = useState('happy');
 
   const onChangeComment = (item: string) => {

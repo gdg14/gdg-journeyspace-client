@@ -9,3 +9,23 @@ export const GET_DIARY_MONTH = gql`
     }
   }
 `;
+
+export const SAVE_DIARY = gql`
+  mutation saveDiary(
+    $usrId: String!
+    $title: String!
+    $content: String!
+    $feelings: String!
+    $category: String!
+    $publicYN: String!
+  ) {
+    saveDiary(
+      usrId: $usrId
+      title: $title
+      content: $content
+      feelings: $feelings
+      category: $category
+      publicYN: $publicYN
+    )
+  }
+`;
