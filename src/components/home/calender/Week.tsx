@@ -1,6 +1,7 @@
 import moment from 'moment';
 import styled from 'styled-components';
 import { useReactiveVar } from '@apollo/client';
+import { useHistory } from 'react-router-dom';
 
 import calenderDate, { nowMonthDiaries } from '../../../stores/Calender';
 import { WeekWrapper, DayText } from '../../common/Calender';
@@ -40,6 +41,7 @@ interface IProps {
 function Week({ firstDayOfThisWeek }: IProps) {
   const date = useReactiveVar(calenderDate);
   const diaries = useReactiveVar(nowMonthDiaries);
+  const history = useHistory();
 
   return (
     <WeekWrapper>
@@ -55,6 +57,7 @@ function Week({ firstDayOfThisWeek }: IProps) {
             {day.isSame(moment(), 'day') && <TodayCircle />}
             {diary.length > 0 && (
               <DayPlanet
+                onClick={() => history.push(`/journey/${diary[0].id}`)}
                 alt={`diary_planet_${item}`}
                 src={`${process.env.PUBLIC_URL}/planet/selected/${diary[0].feelings}.png`}
               />
