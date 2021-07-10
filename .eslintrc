@@ -23,6 +23,7 @@
     "jsx-a11y/no-noninteractive-element-interactions": 0,
     "@typescript-eslint/explicit-module-boundary-types": 0,
     "react/react-in-jsx-scope": 0,
-    "react/require-default-props": 0
+    "react/require-default-props": 0,
+    "no-alert": 0
   }
 }

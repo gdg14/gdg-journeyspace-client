@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { IComment } from './interface';
+
 import CommentItem from './CommentItem';
 import CommentWarning from './CommentWarning';
 import CommentInput from './CommentInput';
@@ -23,19 +25,30 @@ const CommentDivider = styled.hr`
 `;
 
 interface IProps {
-  isMyJourney: boolean;
+  isMyJourney?: boolean;
+
+  comments: IComment[];
+  diaryId: number;
 }
 
-function Body({ isMyJourney }: IProps) {
+function Body({ isMyJourney, comments, diaryId }: IProps) {
   return (
     <Wrapper>
       <CommentContentWrapper>
-        {/* 내 코멘트 */}
-        <CommentItem />
-        <CommentDivider />
-        {isMyJourney ? <CommentItem /> : <CommentWarning />}
+        {isMyJourney ? (
+          comments.map((item, index) => {
+            return (
+              <>
+                <CommentItem comment={item} />
+                {comments.length - 1 > index && <CommentDivider />}
+              </>
+            );
+          })
+        ) : (
+          <CommentWarning />
+        )}
       </CommentContentWrapper>
-      <CommentInput />
+      <CommentInput diaryId={diaryId} />
     </Wrapper>
   );
 }
