@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const JourneyCard = styled.article`
   width: 100%;
-  height: 200px;
+  height: 250px;
   background-color: white;
   margin: 15px;
   box-shadow: 5px 5px 5px rgba(0,0,0,.2);
@@ -17,13 +17,15 @@ const CardText = styled.div`
   display: flex;
   flex-direction: column;
   padding: 40px 50px;
+  align-items: center;
+  justify-content: center;
 `;
 
 const CardImg = styled.div`
   flex: 1;
   overflow: hidden;
   width: 100%;
-  height: 200px;
+  height: 250px;
 `;
 
 const Img = styled.img`
@@ -34,7 +36,8 @@ const CardTop = styled.div`
   flex: 1;
   overflow: hidden;
   width: 100%;
-  height: 200px;
+  height: 250px;
+  margin-top: 20px;
 `;
 
 const CardContents = styled.div`
@@ -61,7 +64,7 @@ function JourneyItem() {
       <CardWrapper>
         <CardText>
           <CardTop>
-            <Date>7.07</Date> <Title>가평여행</Title>
+            <Date>7.07</Date> <Title>&nbsp;가평여행</Title>
             </CardTop>
           <CardContents>
             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eir mod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam volup tua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gu ber gren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy

@@ -20,6 +20,7 @@ const JourneyTop = styled.article`
 
 const JourneyCardList = styled.div`
   overflow-y: scroll;
+  overflow-x: hidden;
   width: 90%;
   max-height: 680px;
 `
