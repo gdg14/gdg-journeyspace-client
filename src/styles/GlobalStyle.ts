@@ -21,6 +21,10 @@ const GlobalStyle = createGlobalStyle`
         width: 100%;
         height: 100%;
     }
+
+    input:focus { outline: none; }
+
+    textarea:focus { outline: none; }
 `;
 
 export default GlobalStyle;

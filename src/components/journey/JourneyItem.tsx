@@ -6,7 +6,7 @@ const JourneyCard = styled.div`
   height: 250px;
   background-color: white;
   margin-top: 10px;
-  box-shadow: 5px 5px 5px rgba(0,0,0,.2);
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
 `;
 
 const CardWrapper = styled.div`
@@ -51,14 +51,14 @@ const CardContents = styled.div`
 `;
 
 const Date = styled.span`
-  color: #ADADAD;
+  color: #adadad;
   font-size: 24px;
   font-weight: bold;
-`
+`;
 
 const Title = styled.span`
-  font-size: 24px
-`
+  font-size: 24px;
+`;
 interface Journey {
   idx: number;
   title: string;
@@ -67,31 +67,33 @@ interface Journey {
 }
 
 export const JourneyDetail = (idx: number) => {
-  console.log(idx)
+  console.log(idx);
 };
 
 const JourneyItem = (temp: Journey) => {
-  const item:Journey = temp;
+  const item: Journey = temp;
   return (
-    <JourneyCard 
-    onClick={() => { 
-      window.location.replace(`/journeyy/${item.idx}`);
-    }}>
+    <JourneyCard
+      onClick={() => {
+        window.location.replace(`/journeyy/${item.idx}`);
+      }}
+    >
       <CardWrapper>
         <CardText>
           <CardTop>
             <Date>{moment(item.date).format('MM.DD')}</Date> <Title>&nbsp;{item.title}</Title>
-            </CardTop>
-          <CardContents key={item.idx}>
-            {item.contents}
-          </CardContents>
+          </CardTop>
+          <CardContents key={item.idx}>{item.contents}</CardContents>
         </CardText>
         <CardImg>
-        <Img alt="write_icon" src='http://image.dongascience.com/Photo/2018/12/2d5efe44bdd02f3e2ec4e99189d89d18.jpg' />
+          <Img
+            alt="write_icon"
+            src="http://image.dongascience.com/Photo/2018/12/2d5efe44bdd02f3e2ec4e99189d89d18.jpg"
+          />
         </CardImg>
       </CardWrapper>
-    </JourneyCard>      
+    </JourneyCard>
   );
-}
+};
 
 export default JourneyItem;
