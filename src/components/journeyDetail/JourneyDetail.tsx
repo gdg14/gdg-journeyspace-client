@@ -10,7 +10,7 @@ const Wrapper = styled.article`
 `;
 
 const LeftWrap = styled.div`
-  flex: 2;
+  flex: 4;
   display: flex;
   flex-direction: column;
   padding: 30px;
@@ -21,6 +21,7 @@ const RightWrap = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #F6F6F6;
 `
 
 const JourneyContent = styled.div`
@@ -33,12 +34,19 @@ const JourneyImg = styled.div`
   padding: 10px;
 `
 const JourneyFeeling = styled.div`
-  flex: 1
+  flex: 1;
+  border-bottom: 1px solid gray;
+  width: 100%;
+  text-align: center;
+  align-item: center;
 `
 const JourneyFeelingDetail = styled.div`
-  flex: 1
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-item: center;
+  flex-direction: column;
 `
-
 
 const TextTitle = styled.h6`
   font-weight: bold;
@@ -47,32 +55,25 @@ const TextTitle = styled.h6`
 `
 
 const JourneyTop = styled.span`
-    // width: 90%;
-    // height: 80px;
-    display: flex;
-    text-align: left;
-    // flex-direction: column;
+  display: flex;
+  text-align: left;
 `;
-
-
 
 const ItemWrapper = styled.div`
   margin-top: 30px;
   width: 100%;
   height: 100%;
   display: flex;
-  // max-height: 680px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
   background-color: white;
 `
 
 const Height = styled.div`
-  width: 80%;
+  width: 90%;
   height: 90%;
   display: flex;
   margin-top: auto;
-  // justify-content: center;
   flex-direction: column;
-  // align-items: center;
 `
 
 const Date = styled.span`
@@ -87,36 +88,167 @@ const Title = styled.span`
 
 const Content = styled.p`
   line-height: 30px;
-  margin-top: 5px;
+  margin-top: 10px;
 `
 
 const Img = styled.img`
   width: 240px;
   height: 240px;
   margin-right: 5px;
+  display: block;
+  margin: 0 auto;
 `;
 
 const ImgWrapper = styled.div`
   display: flex;
+  width: 100%
   margin-top: 10px;
 `
+const PlanetImgWrapper = styled.div`
+  display: flex;
+  width: 100%;
+  align-item: center;
+  text-align: center;
+  flex-wrap: wrap;
+  padding: 25px;
+`
 
+const ImgText = styled.span`
+  margin-top: 5px;
+`
+
+const PlanetWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-item: center;
+  margin: 6px;
+  margin-top: 10px;
+  padding: 5px;
+`
+
+const PlanetImg = styled.img`
+  width: 50px;
+  height: 50px;
+  margin-right: 5px;
+  display: block;
+  margin: 0 auto;
+`;
+
+
+const TodayImgWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-item: center;
+  margin: 6px;
+  margin-top: 10px;
+  padding: 5px;
+`
+
+const PlanetSelectImg = styled.img`
+  width: 100px;
+  height: 100px;
+  margin-right: 5px;
+  display: block;
+  margin: 0 auto;
+`;
+
+
+const PlanetSelectWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  justify-content: center;
+`;
+
+
+const PlanetSelectTitle = styled.h4`
+  font-weight: bold;
+  font-size: 23px;
+  margin-top: 15px;
+`;
+const PlanetSelectContent = styled.p`
+  flex: 1;
+  width: 80%;
+  line-height: 30px;
+  text-align: center;
+  margin-top: 15px;
+  justify-content: center;
+`;
+
+const TextTitleFeeling = styled.h6`
+  font-weight: bold;
+  font-size: 23px;
+  margin-top: 25px;
+  text-align: center;
+`
+
+const TestWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  justify-content: center;
+`;
 
 const img = [
   {
     idx: 1,
-    url: 'http://image.dongascience.com/Photo/2018/12/2d5efe44bdd02f3e2ec4e99189d89d18.jpg'
+    url: 'http://image.dongascience.com/Photo/2018/12/2d5efe44bdd02f3e2ec4e99189d89d18.jpg',
+    text: '한마디 코멘ㅌ'
   },
   {
     idx: 1,
-    url: 'http://storage.enuri.info/pic_upload/knowbox2/202009/0841147752020092540507c61-d3bc-4f18-a8ff-cd36a240ca2f.jpg'
+    url: 'http://storage.enuri.info/pic_upload/knowbox2/202009/0841147752020092540507c61-d3bc-4f18-a8ff-cd36a240ca2f.jpg',
+    text: '나만 없어 고양이'
   },
   {
     idx: 1,
-    url: 'http://image.dongascience.com/Photo/2018/12/2d5efe44bdd02f3e2ec4e99189d89d18.jpg'
+    url: 'http://image.dongascience.com/Photo/2018/12/2d5efe44bdd02f3e2ec4e99189d89d18.jpg',
+    text: '나는 잇지롱'
   }
-]
+];
 
+const PlanetlList = [
+  {
+    text: '기쁨',
+    val: 'happy'
+  },
+  {
+    text: '고마움',
+    val: 'thanks'
+  },
+  {
+    text: '안심',
+    val: 'relief'
+  },
+  {
+    text: '분노',
+    val: 'anger'
+  },
+  {
+    text: '증오',
+    val: 'hate'
+  },
+  {
+    text: '짜증',
+    val: 'annoying'
+  },
+  {
+    text: '슬픔',
+    val: 'sad'
+  },
+  {
+    text: '후회',
+    val: 'regret'
+  },
+  {
+    text: '실망',
+    val: 'disappoint'
+  },
+]
 
 function JourneyDetail() {
   return (
@@ -125,8 +257,6 @@ function JourneyDetail() {
       <JourneyTop>
         <Date>7.07</Date> <Title>&nbsp;안녕</Title>
       </JourneyTop>
-
-
       <ItemWrapper>
         <LeftWrap>
         <JourneyContent>
@@ -141,18 +271,43 @@ function JourneyDetail() {
           <TextTitle>오늘의 사진</TextTitle>
           <ImgWrapper>
             {img.map((t, index) => {
-              return <Img alt="today_img" src={t.url} />
+              return (
+                <>
+                <TodayImgWrapper>
+                  <Img alt="today_img" src={t.url} /> 
+                  <ImgText>{t.text}</ImgText>
+                </TodayImgWrapper>
+                </>
+              )
             })}
           </ImgWrapper>
         </JourneyImg>
       </LeftWrap>
       <RightWrap>
         <JourneyFeeling>
-          <h6>오늘의 기분</h6>
+          <TextTitle>오늘의 기분</TextTitle>
+          <PlanetImgWrapper>
+            {PlanetlList.map((t, index) => {
+              return (
+                <>
+                  <PlanetWrapper>
+                    <PlanetImg alt="planet_list" src={`${process.env.PUBLIC_URL}/planet/unselected/${t.val}.svg`} /> 
+                    <ImgText>{t.text}</ImgText>
+                  </PlanetWrapper>
+                </>
+              )
+            })}
+          </PlanetImgWrapper>
+
         </JourneyFeeling>
 
         <JourneyFeelingDetail>
-          <h6>기쁨</h6>
+          <TextTitleFeeling>기쁨</TextTitleFeeling>
+          <PlanetSelectWrapper>
+            <PlanetSelectImg alt="planet_list" src={`${process.env.PUBLIC_URL}/planet/unselected/happy.svg`} /> 
+            <PlanetSelectTitle>지구</PlanetSelectTitle> 
+            <PlanetSelectContent>지구인들의 고향이기도 한 지구는 풍부한 산소와 자원들로 기쁜 감정을 제공해요</PlanetSelectContent> 
+          </PlanetSelectWrapper>
         </JourneyFeelingDetail>
       </RightWrap>
       </ItemWrapper>
