@@ -4,14 +4,17 @@ import TopSideNavbar from './TopSideNavbar';
 import BottomSideNavbar from './BottomSideNavbar';
 
 const Wrapper = styled.nav`
-  width: 20%;
+  width: 350px;
   height: 100%;
 
   background-color: white;
 `;
 
 const SideNavbarDivider = styled.hr`
-  color: grey;
+  border: none;
+  height: 2px;
+  background-color: #070707;
+  opacity: 0.2;
 `;
 
 function SideNavbar() {

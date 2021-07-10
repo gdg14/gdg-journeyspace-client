@@ -14,7 +14,10 @@ const Wrapper = styled.div`
 `;
 
 const ServiceTitle = styled.p`
-  color: #b8b8b8;
+  font-size: 16;
+  color: #333333;
+  opacity: 0.4;
+  letter-spacing: -0.04em;
 `;
 
 const MenuWrapper = styled.article`
@@ -31,23 +34,26 @@ const ProfileWrapper = styled.div`
 `;
 
 const ProfileImage = styled.img`
-  border: 1px solid grey;
+  border: 1px solid #707070;
   border-radius: 100%;
-  width: 60px;
+  width: 70px;
 
   margin-right: 10px;
 `;
 
 const ProfileTitle = styled.h2`
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 18px;
+  color: #333333;
   margin-bottom: 7px;
+  opacity: 0.7;
+  letter-spacing: -0.04em;
 `;
 
 const ProfileInfo = styled.p`
-  font-size: 15px;
-  font-weight: 300;
-  color: grey;
+  font-size: 14px;
+  color: #333333;
+  opacity: 0.7;
+  letter-spacing: -0.04em;
 `;
 
 function TopSideNavbar() {
