@@ -8,6 +8,7 @@ const Wrapper = styled.article`
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  padding: 10px;
 `;
 
 const JourneyTop = styled.article`
@@ -16,6 +17,7 @@ const JourneyTop = styled.article`
     display: flex;
     justify-content: center;
     flex-direction: column;
+    margin-top: 30px;
 `;
 
 const JourneyCardList = styled.div`
@@ -39,10 +41,41 @@ const Write = styled.div`
   align-items: center;
 `
 
-const elements = ['one', 'two', 'three', 'three'];
+const elements = [
+  {
+    idx: 1,
+    title: '가평여행',
+    date: '2021-07-07',
+    contents: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eir mod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam volup tua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gu ber gren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy Lorem ipsum dolor sit am Lorem ipsum dolor sit am Lorem ipsum dolor sit am Lorem ipsum dolor sit am Lorem ipsum dolor sit am Lorem ipsum dolor sit am"
+  },
+  {
+    idx: 2,
+    title: '가평여행',
+    date: '2021-07-07',
+    contents: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eir mod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam volup tua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gu ber gren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy Lorem ipsum dolor sit am Lorem ipsum dolor sit am Lorem ipsum dolor sit am Lorem ipsum dolor sit am Lorem ipsum dolor sit am Lorem ipsum dolor sit am"
+  },
+  {
+    idx: 3,
+    title: '가평여행',
+    date: '2021-07-07',
+    contents: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eir mod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam volup tua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gu ber gren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy Lorem ipsum dolor sit am Lorem ipsum dolor sit am Lorem ipsum dolor sit am Lorem ipsum dolor sit am Lorem ipsum dolor sit am Lorem ipsum dolor sit am"
+  },
+  {
+    idx: 4,
+    title: '가평여행',
+    date: '2021-07-07',
+    contents: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eir mod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam volup tua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gu ber gren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy Lorem ipsum dolor sit am Lorem ipsum dolor sit am Lorem ipsum dolor sit am Lorem ipsum dolor sit am Lorem ipsum dolor sit am Lorem ipsum dolor sit am"
+  },
+  {
+    idx: 5,
+    title: '가평여행',
+    date: '2021-07-07',
+    contents: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eir mod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam volup tua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gu ber gren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy Lorem ipsum dolor sit am Lorem ipsum dolor sit am Lorem ipsum dolor sit am Lorem ipsum dolor sit am Lorem ipsum dolor sit am Lorem ipsum dolor sit am"
+  }
+];
 
 const StyledButton = styled.button`
-  padding: 0.375rem 0.75rem;
+  // padding: 0.375rem 0.75rem;
   font-size: 1rem;
   line-height: 1.5;
   border: 1px solid lightgray;
@@ -54,8 +87,12 @@ const StyledButton = styled.button`
 `;
 
 const WriteIcon = styled.img`
-  width: 60px;
+  width: 50px;
 `;
+
+const WriteText = styled.span`
+  font-size: 18px
+`
 
 
 function Journey() {
@@ -67,12 +104,12 @@ function Journey() {
         </Order>
         <Write>
         <WriteIcon alt="write_icon" src={`${process.env.PUBLIC_URL}/icon/add_btn.png`} />
-          오늘 일기쓰기
+          <WriteText>오늘 일기쓰기</WriteText>
         </Write>
       </JourneyTop>
       <JourneyCardList>
-      {elements.map((value, index) => {
-        return <JourneyItem/>
+      {elements.map((t, index) => {
+        return <JourneyItem key={t.idx} idx={t.idx} title={t.title} contents={t.contents} date={t.date}/>
       })}
       </JourneyCardList>
     </Wrapper>      
