@@ -4,7 +4,7 @@ import { ApolloClient, InMemoryCache } from '@apollo/client';
 import calenderDate, { nowMonthDiaries } from '../stores/Calender';
 
 export const client = new ApolloClient({
-  uri: `http://${process.env.REACT_APP_BASE_URL}:8080/playground`,
+  uri: `http://${process.env.REACT_APP_BASE_URL}:8080/graphql`,
   cache: new InMemoryCache({
     typePolicies: {
       Calender: {

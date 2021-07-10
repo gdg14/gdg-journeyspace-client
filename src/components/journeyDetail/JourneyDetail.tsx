@@ -31,6 +31,8 @@ const RightWrap = styled.div`
 const JourneyContent = styled.div`
   flex: 1;
   padding: 10px 35px;
+  max-height: 300px;
+  overflow-y: scroll;
   // border-bottom: 1px solid gray;
 `;
 const JourneyImg = styled.div`
@@ -95,6 +97,7 @@ const Content = styled.p`
   line-height: 30px;
   margin-top: 10px;
   font-size: 14px;
+  max-height: 240px;
 `;
 
 const Img = styled.img`
@@ -280,7 +283,10 @@ function JourneyDetail() {
 
   const temp: any = item;
 
-  const [PlanetSelected] = useState('happy');
+  let [PlanetSelected] = useState('happy');
+  PlanetSelected = temp.feelings;
+
+  console.log(PlanetSelected);
 
   return (
     <Wrapper>
