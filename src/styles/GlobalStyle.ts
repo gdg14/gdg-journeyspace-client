@@ -2,9 +2,8 @@ import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
 
 const GlobalStyle = createGlobalStyle`
-    @font-face {
-        font-family: 'NanumSquare';
-        src: local('./fonts/NanumSquare_acB.ttf');
+    .nanumsquare {
+        font-family: 'NanumSquare', sans-serif !important;
     }
 
     ${reset}
@@ -13,8 +12,7 @@ const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
         color: #333333;
         margin: 0;
-
-        font-family: NanumSquare !important;
+        font-family: 'NanumSquare', sans-serif !important;
     }
 
     html, body, #root {
