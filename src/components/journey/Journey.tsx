@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import JourneyItem from './JourneyItem';
 
 const Wrapper = styled.article`
   width: 100%;
@@ -7,13 +8,6 @@ const Wrapper = styled.article`
   justify-content: center;
   flex-direction: column;
   align-items: center;
-`;
-
-const JourneyCard = styled.article`
-    width: 90%;
-    height: 200px;
-    background-color: blue;
-    margin: 10px
 `;
 
 const JourneyTop = styled.article`
@@ -33,7 +27,6 @@ const Write = styled.div`
   flex: 1;
   text-align: left;
   font-size: 20px;
-  color: #333333;
   display: flex;
   align-items: center;
 `
@@ -56,6 +49,11 @@ const WriteIcon = styled.img`
   width: 60px;
 `;
 
+const JourneyCardList = styled.div`
+  backgroud-color: red; 
+  width: 90%;
+`
+
 function Journey() {
   return (
     <Wrapper>
@@ -64,14 +62,15 @@ function Journey() {
         <StyledButton>정렬</StyledButton>
         </Order>
         <Write>
-
         <WriteIcon alt="write_icon" src={`${process.env.PUBLIC_URL}/icon/add_btn.png`} />
           오늘 일기쓰기
         </Write>
       </JourneyTop>
+      <JourneyCardList>
       {elements.map((value, index) => {
-        return <JourneyCard>dd</JourneyCard>
+        return <JourneyItem/>
       })}
+      </JourneyCardList>
     </Wrapper>      
   );
 }
