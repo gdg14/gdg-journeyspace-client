@@ -10,14 +10,13 @@ const Wrapper = styled.article`
 `;
 
 const LeftWrap = styled.div`
-  flex: 4;
+  flex: 3;
   display: flex;
   flex-direction: column;
-  padding: 30px;
 `;
 
 const RightWrap = styled.div`
-  flex: 1.3;
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,12 +25,13 @@ const RightWrap = styled.div`
 
 const JourneyContent = styled.div`
   flex: 1;
-  padding: 10px;
-  border-bottom: 1px solid black;
+  padding: 10px 35px; 
+  // border-bottom: 1px solid gray;
 `
 const JourneyImg = styled.div`
   flex: 1;
-  padding: 10px;
+  padding: 10px 35px; 
+  // padding: 10px;
 `
 const JourneyFeeling = styled.div`
   flex: 1;
@@ -50,7 +50,7 @@ const JourneyFeelingDetail = styled.div`
 
 const TextTitle = styled.h6`
   font-weight: bold;
-  font-size: 23px;
+  font-size: 20px;
   margin-top: 25px;
 `
 
@@ -61,9 +61,9 @@ const JourneyTop = styled.span`
 
 const ItemWrapper = styled.div`
   margin-top: 30px;
+  display: flex;
   width: 100%;
   height: 100%;
-  display: flex;
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
   background-color: white;
 `
@@ -78,22 +78,23 @@ const Height = styled.div`
 
 const Date = styled.span`
   color: #ADADAD;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
 `
 
 const Title = styled.span`
-  font-size: 24px
+  font-size: 20px
 `
 
 const Content = styled.p`
   line-height: 30px;
   margin-top: 10px;
+  font-size: 14px
 `
 
 const Img = styled.img`
-  width: 240px;
-  height: 240px;
+  width: 160px;
+  height: 160px;
   margin-right: 5px;
   display: block;
   margin: 0 auto;
@@ -110,11 +111,12 @@ const PlanetImgWrapper = styled.div`
   align-item: center;
   text-align: center;
   flex-wrap: wrap;
-  padding: 25px;
+  // padding: 25px;
 `
 
 const ImgText = styled.span`
   margin-top: 5px;
+  font-size: 14px;
 `
 
 const PlanetWrapper = styled.div`
@@ -124,12 +126,13 @@ const PlanetWrapper = styled.div`
   align-item: center;
   margin: 6px;
   margin-top: 10px;
+  margin-left: 15px;
   padding: 5px;
 `
 
 const PlanetImg = styled.img`
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   margin-right: 5px;
   display: block;
   margin: 0 auto;
@@ -143,12 +146,12 @@ const TodayImgWrapper = styled.div`
   align-item: center;
   margin: 6px;
   margin-top: 10px;
-  padding: 5px;
+  // padding: 5px;
 `
 
 const PlanetSelectImg = styled.img`
-  width: 100px;
-  height: 100px;
+  width: 90px;
+  height: 90px;
   margin-right: 5px;
   display: block;
   margin: 0 auto;
@@ -166,16 +169,18 @@ const PlanetSelectWrapper = styled.div`
 
 const PlanetSelectTitle = styled.h4`
   font-weight: bold;
-  font-size: 23px;
+  font-size: 18px;
   margin-top: 15px;
 `;
 const PlanetSelectContent = styled.p`
   flex: 1;
   width: 80%;
-  line-height: 30px;
+  line-height: 20px;
   text-align: center;
   margin-top: 15px;
+  font-size: 12px;
   justify-content: center;
+  color:#818181;
 `;
 
 const TextTitleFeeling = styled.h6`
@@ -258,7 +263,8 @@ function JourneyDetail() {
         <Date>7.07</Date> <Title>&nbsp;안녕</Title>
       </JourneyTop>
       <ItemWrapper>
-        <LeftWrap>
+        
+      <LeftWrap>
         <JourneyContent>
           <TextTitle>오늘의 일기</TextTitle>
           <Content>
@@ -283,7 +289,7 @@ function JourneyDetail() {
           </ImgWrapper>
         </JourneyImg>
       </LeftWrap>
-      <RightWrap>
+        <RightWrap>
         <JourneyFeeling>
           <TextTitle>오늘의 기분</TextTitle>
           <PlanetImgWrapper>

@@ -5,7 +5,7 @@ const JourneyCard = styled.div`
   width: 100%;
   height: 250px;
   background-color: white;
-  margin: 15px;
+  margin-top: 10px;
   box-shadow: 5px 5px 5px rgba(0,0,0,.2);
 `;
 
@@ -31,10 +31,11 @@ const CardImg = styled.div`
 
 const Img = styled.img`
   width: 100%;
+  height: 250px;
 `;
 
 const CardTop = styled.div`
-  flex: 1;
+  flex: 1.5;
   overflow: hidden;
   width: 100%;
   height: 250px;
