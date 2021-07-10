@@ -1,4 +1,9 @@
 import styled from 'styled-components';
+import { useEffect } from 'react';
+import { useLazyQuery, useReactiveVar } from '@apollo/client';
+import moment from 'moment';
+import calenderDate, { setNowMonthDiaries } from '../../stores/Calender';
+import { GET_DIARY_MONTH } from './gql';
 
 import Calender from './calender';
 
@@ -19,10 +24,29 @@ const HeaderText = styled.h1`
 `;
 
 function HomeMain() {
+  const date = useReactiveVar(calenderDate);
+  const [getDiaryByMonth, { data, loading }] = useLazyQuery(GET_DIARY_MONTH, {
+    fetchPolicy: 'no-cache',
+    variables: { yyyymm: date.format('YYYYMM') },
+    onCompleted: (item) => {
+      setNowMonthDiaries([
+        ...item.getDiaryByMonth.map((item: any) => ({
+          id: item.id,
+          feelings: item.feelings,
+          regDtm: moment(item.regDtm.substring(0, 8)),
+        })),
+      ]);
+    },
+  });
+
+  useEffect(() => {
+    getDiaryByMonth();
+  }, []);
+
   return (
     <Wrapper>
       <HeaderText>반가워요 랜덤일기님! 오늘은 어떤 하루를 보내셨나요?</HeaderText>
-      <Calender />
+      {!loading && data !== undefined && <Calender />}
     </Wrapper>
   );
 }
