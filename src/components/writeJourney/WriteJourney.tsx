@@ -420,7 +420,7 @@ function WriteJourney() {
                 name="content"
                 onChange={onChange}
                 value={content}
-                placeholder="l 일기 내용을 적어주세요"
+                placeholder="l 일기 내용을 적어주세요 hi"
               />
             </JourneyContent>
             <JourneyImg>
